@@ -5,6 +5,10 @@ using AxisArrays: AxisArrays, AxisArray
 using ImageCore, ImageAxes
 using Test
 
+if Base.VERSION < v"1.1"
+    using Compat   # oneunit(::CartesianIndex)
+end
+
 @testset "GetindexArrays.jl" begin
     # A purely computational array
     A = GetindexArray((Base.OneTo(5), Base.OneTo(7))) do y, x
